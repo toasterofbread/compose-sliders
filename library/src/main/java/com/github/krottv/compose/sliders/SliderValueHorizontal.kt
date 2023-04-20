@@ -18,7 +18,6 @@ import androidx.compose.ui.semantics.setProgress
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.DpSize
 import androidx.compose.ui.unit.LayoutDirection
-import androidx.compose.ui.util.lerp
 import kotlinx.coroutines.coroutineScope
 import kotlinx.coroutines.launch
 import kotlin.coroutines.cancellation.CancellationException
@@ -387,6 +386,10 @@ private fun Modifier.sliderPressModifier(
 
 private fun stepsToTickFractions(steps: Int): List<Float> {
     return if (steps == 0) emptyList() else List(steps + 2) { it.toFloat() / (steps + 1) }
+}
+
+fun lerp(start: Float, stop: Float, amount: Float): Float {
+    return start + (stop - start) * amount
 }
 
 // Scale x1 from a1..b1 range to a2..b2 range

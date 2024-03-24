@@ -186,9 +186,10 @@ fun SliderValueHorizontal(
             enabled
         )
 
-        val press = Modifier.sliderPressModifier(
-            draggableState, interactionSource, maxPx, isRtl, rawOffset, gestureEndAction, enabled
-        )
+        val press = Modifier
+            // .sliderPressModifier(
+            //     draggableState, interactionSource, maxPx, isRtl, rawOffset, gestureEndAction, enabled
+            // )
 
         val drag = Modifier.draggable(
             orientation = Orientation.Horizontal,

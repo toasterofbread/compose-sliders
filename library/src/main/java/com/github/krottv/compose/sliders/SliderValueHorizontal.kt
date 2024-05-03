@@ -48,6 +48,7 @@ fun SliderValueHorizontal(
     onValueChange: (Float) -> Unit,
     modifier: Modifier = Modifier,
     enabled: Boolean = true,
+    track_press_enabled: Boolean = true,
     valueRange: ClosedFloatingPointRange<Float> = 0f..1f,
     /*@IntRange(from = 0)*/
     steps: Int = 0,
@@ -187,9 +188,9 @@ fun SliderValueHorizontal(
         )
 
         val press = Modifier
-            // .sliderPressModifier(
-            //     draggableState, interactionSource, maxPx, isRtl, rawOffset, gestureEndAction, enabled
-            // )
+            .sliderPressModifier(
+                draggableState, interactionSource, maxPx, isRtl, rawOffset, gestureEndAction, enabled && track_press_enabled
+            )
 
         val drag = Modifier.draggable(
             orientation = Orientation.Horizontal,
